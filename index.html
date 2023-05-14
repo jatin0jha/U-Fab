@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>UFab - Custom T-Shirts and Hoodies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="asseta/logo (1).png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    @media screen {
+      .index-class {
+        display: none;
+      }
+
+      body {
+        margin: 10px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+        box-shadow: 0px 25px 40px #3d3d3d;
+        font-family: system-ui, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+
+      .Header {
+        margin: auto;
+        padding: 20px;
+        width: 90%;
+        height: 15%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: beige;
+      }
+
+      .Header div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .Header div a {
+        font-weight: 700;
+        margin-left: 20px;
+      }
+
+      .act-btn {
+        padding: 5px;
+        display: inline-block;
+        font-weight: 700;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+      }
+
+      .act-btn:hover {
+        color: rgba(0, 0, 0, 0.562);
+      }
+
+      .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 4em;
+        color: #000000;
+      }
+
+      .capsule-text {
+        width: 50%;
+      }
+
+      .capsule-text h2 {
+        font-size: 3em;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .capsule-text h2 span {
+        color: #ff5e00ea;
+      }
+
+      .capsule-text p {
+        font-size: 1.2em;
+        font-weight: 400;
+        margin: 0;
+      }
+
+      .capsule-text a {
+        text-decoration: none;
+        font-size: 1.2em;
+        font-weight: 600;
+        background-color: #ff5e00ea;
+        border: 1px solid #ff5e00ea;
+        padding: 0.5em 1em;
+        border-radius: 50px;
+        margin-top: 1em;
+        display: inline-block;
+        color: #ffffff;
+      }
+
+      .capsule-text a:hover {
+        color: #ff5e00ea;
+        background-color: #ffffff;
+        border: 1px solid #ff5e00ea;
+      }
+
+      .capsule {
+        width: 20%;
+      }
+
+      .search-bar {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 6px;
+        width: 50%;
+        margin: auto;
+        border-radius: 50px;
+        align-items: center;
+      }
+
+      .search-bar input[type="text"] {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding-left: 10px;
+      }
+
+      #search-button {
+        border: none;
+        background-color: transparent;
+        outline: none;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+
+      .blg-btn {
+        color: aliceblue;
+        background-color: #ff7526;
+        text-decoration: none;
+        padding: 3px 15px;
+        border: 1px solid #ff7526;
+        border-radius: 35px;
+        margin-left: 10px;
+        font-weight: 700;
+        transition: all 0.3s ease-in-out;
+        width: max-content;
+      }
+
+      .blg-btn:hover {
+        background-color: #ffffff;
+        color: #ff7526;
+        border: 1px solid #ff7526;
+      }
+
+      .product-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .product-box {
+        display: flex;
+        width: max-content;
+        align-items: center;
+        background-color: #fafafa;
+        border-radius: 20px;
+        margin: 1em;
+        box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px rgba(255, 255, 255, 1), inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0);
+      }
+
+      .product-img {
+        border-radius: 20px;
+        height: 190px;
+      }
+
+      .product-description {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 20px;
+        padding: 1em;
+      }
+
+      .product-name {
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+
+      .product-price {
+        font-size: 1em;
+        margin-top: 0.5em;
+      }
+
+      #size-select {
+        border: none;
+        background: none;
+      }
+
+      #add-to-cart {
+        width: max-content;
+        background-color: #f44336;
+        color: #ffffff;
+        border: none;
+        border-radius: 100px;
+        font-size: 1em;
+        padding-bottom: 0.3em;
+        padding-top: 0.3em;
+        padding-left: 0.7em;
+        padding-right: 0.7em;
+        cursor: pointer;
+        margin-top: 1em;
+      }
+
+      #add-to-cart:hover {
+        background-color: #ffffff;
+        color: #f44336;
+        border: 1px solid #f44336;
+      }
+
+      footer {
+        text-align: center;
+        padding: 3%;
+        border-radius: 20px;
+        background-color: rgb(0, 0, 0);
+        color: white;
+      }
+
+      footer i {
+        margin: 0 5px;
+        cursor: pointer;
+      }
+
+
+      .login-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+
+      .login-form input {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 20px;
+        color: white;
+        background-color: #ffffff36;
+      }
+
+      .login-form textarea {
+        width: 90%;
+        padding: 20px 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 30px;
+        color: white;
+        background-color: #ffffff36;
+      }
+
+      .login-form input:focus {
+        outline: none;
+      }
+
+      .login-form textarea:focus {
+        outline: none;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        background: rgba(0, 0, 0, 0.904);
+        transition: opacity 500ms;
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      .overlay:target {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .wrapper {
+        margin: 70px auto;
+        padding: 20px;
+        background: #0f0f0f;
+        border-radius: 30px;
+        width: 25%;
+        color: white;
+        position: relative;
+        transition: all 5s ease-in-out;
+      }
+
+      .wrapper .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        transition: all 200ms;
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+      }
+
+      .wrapper .close:hover {
+        color: #f80202;
+      }
+
+      .foot {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0px;
+        padding: 10px 0px;
+        border-top: 1px solid #333;
+      }
+
+      .cart-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .clr-cart {
+        background-color: #f44336;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 40px;
+        cursor: pointer;
+      }
+
+      .clr-cart:hover {
+        background-color: #ac3129;
+      }
+
+      #checkout {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 40px;
+        cursor: pointer;
+      }
+
+      checkout:hover {
+        background-color: #3e8e41;
+      }
+    }
+
+    @media (max-width:500px) {
+      .Header {
+        display: none;
+      }
+
+      .content {
+        display: none;
+      }
+
+      .index-class {
+        display: block;
+      }
+
+      .index-class {
+        background-image: url(asseta/model3.png);
+        border-radius: 20px;
+        height: 600px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      #menuToggle {
+        display: block;
+        position: relative;
+        top: 30px;
+        left: 30px;
+        z-index: 1;
+        -webkit-user-select: none;
+        user-select: none;
+        width: 80%;
+      }
+
+      #menuToggle a {
+        text-decoration: none;
+        color: #232323;
+
+        transition: color 0.3s ease;
+      }
+
+      #menuToggle a:hover {
+        color: tomato;
+      }
+
+      #menuToggle input {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        left: -5px;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 2;
+        -webkit-touch-callout: none;
+      }
+
+      #menuToggle span {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        background: #000000;
+        border-radius: 3px;
+        z-index: 1;
+        transform-origin: 4px 0px;
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+          background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+          opacity 0.55s ease;
+      }
+
+      #menuToggle span:first-child {
+        transform-origin: 0% 0%;
+      }
+
+      #menuToggle span:nth-last-child(2) {
+        transform-origin: 0% 100%;
+      }
+
+      #menuToggle input:checked~span {
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background: #232323;
+      }
+
+      #menuToggle input:checked~span:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+      }
+
+      #menuToggle input:checked~span:nth-last-child(2) {
+        transform: rotate(-45deg) translate(0, -1px);
+      }
+
+      #menu {
+        position: absolute;
+        width: 100%;
+        margin: -100px 0 0 -50px;
+        padding: 50px;
+        padding-top: 125px;
+        background: #ededed;
+        list-style-type: none;
+        -webkit-font-smoothing: antialiased;
+        transform-origin: 0% 0%;
+        transform: translate(-100%, 0);
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+      }
+
+      #menu li {
+        padding: 10px 0;
+        font-size: 22px;
+      }
+
+      #menuToggle input:checked~ul {
+        transform: none;
+      }
+
+      .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 50% 10px;
+      }
+
+      .main h2 {
+        font-size: 3em;
+        font-weight: 600;
+        margin-bottom: 0px;
+      }
+
+      .main h2 span {
+        color: #fc8039;
+      }
+
+      .search-bar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+        width: 85%;
+      }
+
+      .product-box {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        align-items: center;
+        background-color: #fafafa;
+        border-radius: 20px;
+        margin: 1em;
+        box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15), -7px -7px 20px rgba(255, 255, 255, 1), inset 0px 0px 4px rgba(255, 255, 255, 0.2), inset 7px 7px 15px rgba(55, 84, 170, 0), inset -7px -7px 20px rgba(255, 255, 255, 0), 0px 0px 4px rgba(255, 255, 255, 0);
+      }
+
+      .product-img {
+        border-radius: 20px;
+        width: 100%;
+        height: auto;
+      }
+
+      .wrapper {
+        margin: 70px auto;
+        padding: 20px;
+        background: rgb(0, 0, 0);
+        border-radius: 30px;
+        width: 80%;
+        color: white;
+        position: relative;
+        transition: all 5s ease-in-out;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="Header">
+    <img src="asseta/logo.png" alt="Logo" width="182" height="70">
+    <div>
+      <a class="act-btn" href="contact.html">Contact us</a>
+      <a class="act-btn" href="#products">Products</a>
+      <li id="signup-link-wrapper"><a class="blg-btn" id="signup-link" href="#login-page">Sign-up</a></li>
+    </div>
+  </div>
+
+  <div class="index-class">
+    <div class="Headers">
+      <nav role="navigation">
+        <div id="menuToggle">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+            <a href="index.html"><img src="asseta/logo blck.png" height="50px"></a>
+            <a href="contact.html">
+              <li>Contact us</li>
+              <li id="signup-link-wrapper"><a id="signup-link" href="#login-page">Sign-up</a>
+              </li>
+
+            </a>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="Headers"></div>
+    <div class="main">
+      <h2 style="margin-bottom: -50px;">You are</h2>
+      <h2>Fab<span>ulous</span></h2>
+      <p>"Unleash your creativity with our print-on-demand service! No inventory, no hassle. Simply upload your
+        designs and we'll handle the rest. Perfect for small businesses, entrepreneurs, and individual creators.
+        Start your merch business today with us!"</p>
+      <a class="blg-btn" href="pod.html">Print-on-demand</a>
+    </div>
+  </div>
+
+  <div class="overlay" id="login-page">
+    <div
+      style="border-radius: 30px; background-image: linear-gradient(to bottom, rgba(51, 51, 51, 0.616) 0, rgba(0, 0, 0, 0.76) 100%), url(https://cdn.dribbble.com/users/500242/screenshots/7917992/spooky_ghost_v08.gif); background-size: cover; background-position: center; background-repeat: no-repeat;"
+      class="wrapper">
+      <h2 style="color: #ffffff86;">Sign-up</h2><a class="close" href="#">&times;</a>
+      <form class="login-form" id="signup-form" action="">
+        <input type="Name" placeholder="Name">
+        <input type="text" placeholder="Contact Number">
+        <input type="email" placeholder="Email">
+        <textarea name="Address" id="" cols="40" rows="5" placeholder="Address"></textarea>
+        <input style="width: 40%; cursor: pointer;" type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const signupLink = document.getElementById('signup-link');
+    signupLink.addEventListener('click', () => {
+      const name = document.querySelector('input[type="Name"]').value;
+      const contactNumber = document.querySelector('input[type="text"]').value;
+      const email = document.querySelector('input[type="email"]').value;
+      const address = document.querySelector('textarea[name="Address"]').value;
+
+      const userData = { name, contactNumber, email, address };
+      localStorage.setItem('userData', JSON.stringify(userData));
+
+      signupLink.style.display = 'none';
+    });
+
+    window.addEventListener('load', () => {
+      const userData = JSON.parse(localStorage.getItem('userData'));
+      if (userData) {
+        signupLink.style.display = 'none';
+      }
+    });
+
+  </script>
+
+  <div class="overlay" id="divOne">
+    <div
+      style="border-radius: 30px; background-image: linear-gradient(to bottom, rgba(51, 51, 51, 0.616) 0, rgba(0, 0, 0, 0.76) 100%), url(https://wallpaperaccess.com/full/2825704.gif); background-size: cover; background-position: center; background-repeat: no-repeat;"
+      class="wrapper">
+      <h2>Cart</h2><a class="close" href="#products">&times;</a>
+      <div id="cartitem">Your Cart is empty</div>
+      <div class="foot">
+        <h3>Total</h3>
+        <h2 id="total">0.00</h2>
+      </div>
+      <div class="cart-btn">
+        <button class="clr-cart">Clear</button>
+        <button id="checkout">Proceed</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="capsule-text">
+      <h2>You are</h2>
+      <h2>Fab<span>ulous</span></h2>
+      <p>"Unleash your creativity with our print-on-demand service! No inventory, no hassle. Simply upload your
+        designs and we'll handle the rest. Perfect for small businesses, entrepreneurs, and individual creators.
+        Start
+        your merch business today with us!"</p>
+      <a class="pop" href="pod.html">Print on demand</a>
+    </div>
+    <img src="asseta/model0.1.png" class="capsule">
+  </div>
+
+  <div class="search-bar" id="products">
+    <button type="button" id="search-button"><img src="asseta/search.png" width="20" height="20"></button>
+    <input type="text" placeholder="Search for products, brands and more" name="desk-search" id="search-input">
+    <a href="#divOne"><img src="asseta/cart.png" height="25px" style="margin: 0px 5px;"></a>
+  </div>
+
+  <div class="product-container">
+    <div class="product-box">
+      <img class="product-img" src="asseta/tshirt1.jpg">
+      <div class="product-description">
+        <div class="product-name">Bihar se hai</div>
+        <div class="product-price"><img src="asseta/rupee.png" height="10px">300/-</div>
+        <label for="size-select">Select Size:<select id="size-select">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select></label>
+        <button id="add-to-cart">Add to cart</button>
+      </div>
+    </div>
+    <div class="product-box">
+      <img class="product-img" src="asseta/tshirt2.jpg">
+      <div class="product-description">
+        <div class="product-name"><a style="text-decoration: none; color: black;" href="Trivandrum.html">Trivandrum</a>
+        </div>
+        <div class="product-price"><img src="asseta/rupee.png" height="10px">300/-</div>
+        <label for="size-select">Select Size:<select id="size-select">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select></label>
+        <button id="add-to-cart">Add to cart</button>
+      </div>
+    </div>
+    <div class="product-box">
+      <img class="product-img" src="asseta/hoodie1.jpg">
+      <div class="product-description">
+        <div class="product-name">New york</div>
+        <div class="product-price"><img src="asseta/rupee.png" height="10px">500/-</div>
+        <label for="size-select">Select Size:<select id="size-select">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select></label>
+        <button id="add-to-cart">Add to cart</button>
+      </div>
+    </div>
+    <div class="product-box">
+      <img class="product-img" src="asseta/tshirt2.jpg">
+      <div class="product-description">
+        <div class="product-name"><a style="text-decoration: none; color: black;" href="Trivandrum.html">Trivandrum</a>
+        </div>
+        <div class="product-price"><img src="asseta/rupee.png" height="10px">300/-</div>
+        <label for="size-select">Select Size:<select id="size-select">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select></label>
+        <button id="add-to-cart">Add to cart</button>
+      </div>
+    </div>
+    <div class="product-box">
+      <img class="product-img" src="asseta/hoodie1.jpg">
+      <div class="product-description">
+        <div class="product-name">New york</div>
+        <div class="product-price"><img src="asseta/rupee.png" height="10px">500/-</div>
+        <label for="size-select">Select Size:<select id="size-select">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select></label>
+        <button id="add-to-cart">Add to cart</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>New Delhi, India | Email: info@ufab.stealthera.in<br>Copyright &#169 2023 U-Fabric</p>
+    <a><i style="font-size: 25px;" class="fa fa-linkedin-square"></i></a>
+    <a><i style="font-size: 25px;" class="fa fa-instagram"></i></a>
+    <a><i style="font-size: 25px;" class="fa fa-twitter"></i></a>
+    <p><a style="color: white; text-decoration: none;" href="terms&conditions.html">Terms & Conditions</a></p>
+  </footer>
+
+  <script>
+    const searchInput = document.querySelector('#search-input');
+    const productBoxes = document.querySelectorAll('.product-box');
+    const addToCartButtons = document.querySelectorAll('#add-to-cart');
+    const cartItemElement = document.querySelector('#cartitem');
+    const totalElement = document.querySelector('#total');
+    const cart = [];
+
+    searchInput.addEventListener('input', () => {
+      const searchText = searchInput.value.toLowerCase();
+      productBoxes.forEach((box) => {
+        const name = box.querySelector('.product-name').textContent.toLowerCase();
+        box.style.display = name.includes(searchText) ? 'flex' : 'none';
+      });
+    });
+
+    addToCartButtons.forEach((button, index) => {
+      button.addEventListener('click', () => {
+        const productName = document.querySelectorAll('.product-name')[index].textContent;
+        const productPrice = Number(document.querySelectorAll('.product-price')[index].textContent.replace(/\D/g, ''));
+        const productSize = document.querySelectorAll('#size-select')[index].value;
+        cart.push({ name: productName, price: productPrice, size: productSize });
+
+        let cartItemHtml = '';
+        cart.forEach((item, index) => {
+          cartItemHtml += `<div>${item.name} - ${item.size} - <img src="asseta/rupee-w.png" height="10px">${item.price}/- <button style="background-color: #232323; color: white; border: none; border-radius: 40px; margin: 5px; padding: 8px 16px; cursor: pointer;" class="remove" data-index="${index}">Remove</button></div>`;
+        });
+
+        const clearCartButton = document.querySelector('.clr-cart');
+        clearCartButton.addEventListener('click', () => {
+          cart.length = 0;
+          cartItemElement.innerHTML = 'Your Cart is empty';
+          totalElement.textContent = 'Rs. 0.00';
+        });
+        cartItemElement.innerHTML = cartItemHtml;
+
+        const total = cart.reduce((acc, item) => acc + item.price, 0);
+        totalElement.textContent = `Rs. ${total.toFixed(2)}`;
+
+        const removeButtons = document.querySelectorAll('.remove');
+        removeButtons.forEach((button) => {
+          button.addEventListener('click', () => {
+            const itemIndex = button.getAttribute('data-index');
+            cart.splice(itemIndex, 1);
+            cartItemElement.removeChild(button.parentNode);
+            const total = cart.reduce((acc, item) => acc + item.price, 0);
+            totalElement.textContent = `Rs. ${total.toFixed(2)}`;
+          });
+        });
+        alert(`${productName} - ${productSize} has been added to your cart!`);
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>

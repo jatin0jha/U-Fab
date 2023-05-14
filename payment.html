@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>IIC Tshirts</title>
+    <style>
+        @media screen {
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+            }
+
+            .container {
+                display: flex;
+                justify-content: center;
+            }
+
+            .login-form {
+                flex-direction: column;
+                margin: 10% 0;
+            }
+
+            .login-form input {
+                padding: 5px 10px;
+                border: none;
+                border-radius: 30px;
+                margin: 5px 0;
+                outline: none;
+                font-size: 1rem;
+                background-color: rgba(0, 0, 0, 0.123);
+            }
+
+            .login-form label select {
+                padding: 5px 10px;
+                border: none;
+                border-radius: 30px;
+                margin: 5px 0;
+                outline: none;
+                font-size: 1rem;
+                background-color: rgba(0, 0, 0, 0.123);
+            }
+
+            .login-form input[type="submit"] {
+                background-color: #f1c40f;
+                color: #fff;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .login-form input[type="submit"]:hover {
+                background-color: #ffffff;
+                color: #f1c40f;
+                font-weight: bold;
+            }
+
+            .t-back {
+                position: fixed;
+                top: 0;
+                transition: opacity 500ms;
+                visibility: hidden;
+                opacity: 0;
+                z-index: 2;
+            }
+
+            .t-back:target {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            .overlay {
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 2;
+                background: rgba(0, 0, 0, 0.904);
+                transition: opacity 500ms;
+                visibility: hidden;
+                opacity: 0;
+            }
+
+            .overlay:target {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            .wrapper {
+                margin: 70px auto;
+                padding: 20px;
+                background: #000000;
+                border-radius: 30px;
+                width: 25%;
+                color: white;
+                position: relative;
+                transition: all 5s ease-in-out;
+            }
+
+            .wrapper .close {
+                position: absolute;
+                top: 20px;
+                right: 30px;
+                transition: all 200ms;
+                font-size: 30px;
+                font-weight: bold;
+                text-decoration: none;
+                color: rgb(255, 255, 255);
+            }
+
+            .stripe-payment {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+                color: #fff;
+                padding: 40px;
+                border-radius: 30px;
+                font-size: 20px;
+                margin: 10px 20px;
+                background-image: linear-gradient(to bottom, rgba(51, 51, 51, 0.616) 0, rgba(0, 0, 0, 0.76) 100%), url(https://i.pinimg.com/originals/82/fa/63/82fa63fdba1843040c6eaceaa62fbcb3.jpg);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            .upi-payment{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+                color: #fff;
+                padding: 40px;
+                border-radius: 30px;
+                margin: 10px 20px;
+                background-color: white;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .wrapper {
+                margin: 70px auto;
+                padding: 20px;
+                background: rgb(0, 0, 0);
+                border-radius: 30px;
+                width: 80%;
+                color: white;
+                position: relative;
+                transition: all 5s ease-in-out;
+            }
+
+            .container {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .product-img div img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--
+        <p>
+            Introducing the official IIC T-shirt! Made with high-quality materials.<br>
+            For being part of upcoming events having these t-shirts is a compulsion.<br>
+            Order your IIC T-shirt today and show your support for innovation, collaboration, and creativity!
+        </p>
+        upi://pay?cu=INR&pa=9650176982@paytm&am=300&tn=UNT00002&mode=01
+    -->
+
+
+    <div>
+        <div class="container">
+            <div class="product-img">
+                <div id="t-front" class="t-front">
+                    <img src="asseta/IIC Tshirts.png" alt="">
+                </div>
+                <div id="t-back" class="t-back">
+                    <img src="asseta/t-back iic.png" alt="">
+                </div>
+                <a href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                <a href="#t-back"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+            <form class="login-form" id="signup-form" action="#payment">
+                <input type="Name" placeholder="Name"><br>
+                <input type="text" placeholder="Contact Number"><br>
+                <input type="email" placeholder="Email"><br>
+                <label for="size-select"><select id="size-select">
+                        <option value="S">Select Size</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                    </select></label>
+                <input style="padding: 10px 30px; cursor: pointer;" type="submit" value="Pay">
+                <br>
+                <img height="50px" src="https://iic.mic.gov.in/assets/assets/images/iiclogo.png" alt="">
+            </form>
+        </div>
+    </div>
+
+    <div class="overlay" id="payment">
+        <div style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.616) 0, rgba(29, 29, 29, 0.76) 100%);" class="wrapper">
+            <h2>Payment</h2>
+            <a class="close" href="#products">&times;</a>
+            <div class="content">
+                <a class="upi-payment" href="upi://pay?cu=INR&pa=9650176982@paytm&am=300&tn=UNT00002&mode=01"><img
+                        src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo-vector.svg" width="100%" alt=""></a>
+                <a class="stripe-payment" href="https://buy.stripe.com/28o8yQ8ZW12maJyaEE"><i
+                        class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                    Others</a>
+            </div>
+        </div>
+    </div>
+    <script>
+
+    </script>
+</body>
+
+</html>
